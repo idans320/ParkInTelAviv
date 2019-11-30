@@ -91,7 +91,7 @@ fn get_parkid_status(id : u8) -> Result<(status),reqwest::UrlError>{
 
 fn main() {
     rocket::ignite().mount("/status", routes![index]) 
-    .mount("/", StaticFiles::from(concat!(env!("CARGO_MANIFEST_DIR"), "/static")))
+    .mount("/", StaticFiles::from("static/"))
     .attach(make_cors()) // 7.
     .launch();
 }
